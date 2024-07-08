@@ -29,7 +29,7 @@ jobs:
     - name: Import Chocolatey profile
       shell: pwsh  # Use PowerShell
       run: |
-        ls -rec
+        ls
 
     - name: Push package to Chocolatey.org
       env:
