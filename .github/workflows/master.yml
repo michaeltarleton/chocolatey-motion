@@ -34,5 +34,5 @@ jobs:
     - name: Push package to Chocolatey.org
       env:
         CHOCOLATEY_API_KEY: ${{ secrets.CHOCOLATEY_API_KEY }}
-      run: choco push motion.*.nupkg --source=https://push.chocolatey.org/ --api-key ${{ secrets.CHOCOLATEY_API_KEY }}
+      run: choco push motion.0.71.0.nupkg --source=https://push.chocolatey.org/ --api-key ${{ secrets.CHOCOLATEY_API_KEY }}
 
