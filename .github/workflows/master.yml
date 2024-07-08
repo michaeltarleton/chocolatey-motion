@@ -26,6 +26,11 @@ jobs:
     - name: Build Chocolatey package
       run: choco pack motion.nuspec
 
+    - name: Import Chocolatey profile
+      shell: pwsh  # Use PowerShell
+      run: |
+        ls -rec
+
     - name: Push package to Chocolatey.org
       env:
         CHOCOLATEY_API_KEY: ${{ secrets.CHOCOLATEY_API_KEY }}
