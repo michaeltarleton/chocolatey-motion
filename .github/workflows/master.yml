@@ -13,8 +13,13 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Chocolatey
-      uses: chocolatey/setup-chocolatey@v2
+    - name: Install Chocolatey
+      run: |
+        Set-ExecutionPolicy Bypass -Scope Process -Force; `
+        iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+    - name: Refresh environment variables
+      run: RefreshEnv.cmd
 
     - name: Build Chocolatey package
       run: choco pack motion.nuspec
