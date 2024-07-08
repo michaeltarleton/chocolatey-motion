@@ -18,8 +18,10 @@ jobs:
         Set-ExecutionPolicy Bypass -Scope Process -Force; `
         iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-    - name: Refresh environment variables
-      run: RefreshEnv.cmd
+    - name: Import Chocolatey profile
+      shell: pwsh  # Use PowerShell
+      run: |
+        Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 
     - name: Build Chocolatey package
       run: choco pack motion.nuspec
